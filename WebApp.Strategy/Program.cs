@@ -13,6 +13,29 @@ builder.Services.AddDbContext<AppIdentiyDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
 });
 
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<IProductRepository>(sp =>
+{
+    var httpContextAccessor = sp.GetRequiredService<IHttpContextAccessor>();
+    var claim = httpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == Setting.claimDatabaseType);
+    var dbContext = sp.GetRequiredService<AppIdentiyDbContext>();
+    if (claim is null)
+    {
+        return new ProductRepositoryFromSqlServer(dbContext);
+    }
+
+    var databaseType = (DatabaseType)int.Parse(claim.Value);
+    
+    return databaseType switch
+    {
+        DatabaseType.SqlServer => new ProductRepositoryFromSqlServer(dbContext),
+        DatabaseType.Mongo => new ProductRepositoryFromMongoDb(builder.Configuration),
+        _ => throw new NotSupportedException()
+    };
+
+
+});
+
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 {
     options.User.RequireUniqueEmail = true;
