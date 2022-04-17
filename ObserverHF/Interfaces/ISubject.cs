@@ -11,5 +11,7 @@ namespace ObserverHF
         void RegisterObserver(IObserver observer);
         void RemoveObserver(IObserver observer);
         void NotifyObservers();
+        float GetTemperature();
+        float GetHumidity();
     }
 }

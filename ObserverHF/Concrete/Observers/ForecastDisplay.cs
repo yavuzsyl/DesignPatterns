@@ -9,6 +9,8 @@ namespace ObserverHF.Concrete.Observers
     public class ForecastDisplay : IObserver, IDisplayElement
     {
         private WeatherData weatherData;
+        private float currentPressure = 29.92f;
+        private float lastPressure;
 
         public ForecastDisplay(WeatherData weatherData)
         {
@@ -18,12 +20,12 @@ namespace ObserverHF.Concrete.Observers
 
         public void Display()
         {
-            //
-            Console.WriteLine("Forecast: " );
+            Console.WriteLine("Forecast: current pressure" + currentPressure + " last pressure" + lastPressure);
         }
-        public void Update(float temp, float humidity, float pressure)
+        public void Update()
         {
-            //  
+            lastPressure = currentPressure;
+            currentPressure = weatherData.GetPressure();
             Display();
         }
     }

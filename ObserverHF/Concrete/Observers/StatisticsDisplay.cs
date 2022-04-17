@@ -21,7 +21,7 @@ namespace ObserverHF.Concrete.Observers
             Console.WriteLine("StatisticsDisplay: ");
         }
 
-        public void Update(float temp, float humidity, float pressure)
+        public void Update()
         {
             //
             Display();
