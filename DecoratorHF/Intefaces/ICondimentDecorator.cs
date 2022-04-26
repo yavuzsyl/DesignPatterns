@@ -10,6 +10,11 @@ namespace DecoratorHF
     public interface ICondimentDecorator : IBeverage
     {
         IBeverage Beverage { get; set; }
+        
+        public new Size GetSize()
+        {
+            return Beverage.GetSize();
+        }
     }
 
 }
