@@ -19,11 +19,11 @@ namespace DecoratorHF.Concrete.ConcreteDecorators
         public double Cost()
         {
             var cost = Beverage.Cost() + 0.15;
-            cost = Size switch
+            cost = Beverage.Size switch
             {
-                 Size.TALL => cost += 0.10,
-                 Size.GRANDE => cost += 0.15,
-                 Size.VENTI => cost += 0.20,
+                Size.TALL => cost += 0.10,
+                Size.GRANDE => cost += 0.15,
+                Size.VENTI => cost += 0.20,
                 _ => cost
             };
 
