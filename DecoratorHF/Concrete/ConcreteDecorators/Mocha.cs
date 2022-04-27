@@ -6,22 +6,19 @@ using System.Threading.Tasks;
 
 namespace DecoratorHF.Concrete.ConcreteDecorators
 {
-    public class Mocha : ICondimentDecorator
+    public class Mocha : CondimentDecorator
     {
         public Mocha(IBeverage beverage)
         {
             Beverage = beverage;
         }
-        public string Description { get; set; }
-        public IBeverage Beverage { get; set; }
-        public Size Size { get; set; }
 
-        public double Cost()
+        public override double Cost()
         {
             return Beverage.Cost() + 0.20;
         }
 
-        public string GetDescription()
+        public override string GetDescription()
         {
             return Beverage.GetDescription() + ", Mocha";
         }

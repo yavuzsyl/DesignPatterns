@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 
 namespace DecoratorHF.Concrete.ConcreteDecorators
 {
-    public class Soy : ICondimentDecorator
+    public class Soy : CondimentDecorator
     {
         public Soy(IBeverage bevarage)
         {
             Beverage = bevarage;
         }
-        public IBeverage Beverage { get; set; }
-        public string Description { get; set; }
-        public Size Size { get; set; }
 
-        public double Cost()
+        public override double Cost()
         {
             var cost = Beverage.Cost() + 0.15;
             cost = Beverage.Size switch
@@ -29,7 +26,7 @@ namespace DecoratorHF.Concrete.ConcreteDecorators
 
             return cost; ;
         }
-        public string GetDescription()
+        public override string GetDescription()
         {
             return Beverage.GetDescription() + ", Soy";
         }
