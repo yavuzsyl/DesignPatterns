@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp.Observer", "WebApp.O
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecoratorHF", "DecoratorHF\DecoratorHF.csproj", "{CF993163-5EFA-4974-8100-DA5FC8E37A00}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp.Decorator", "WebApp.Decorator\WebApp.Decorator.csproj", "{5E072388-969E-46FD-9E8E-0C397D70ECE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{CF993163-5EFA-4974-8100-DA5FC8E37A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF993163-5EFA-4974-8100-DA5FC8E37A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF993163-5EFA-4974-8100-DA5FC8E37A00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E072388-969E-46FD-9E8E-0C397D70ECE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E072388-969E-46FD-9E8E-0C397D70ECE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E072388-969E-46FD-9E8E-0C397D70ECE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E072388-969E-46FD-9E8E-0C397D70ECE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
