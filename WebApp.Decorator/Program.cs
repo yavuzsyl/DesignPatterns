@@ -21,14 +21,15 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
     options.User.RequireUniqueEmail = true;
 }).AddEntityFrameworkStores<AppIdentiyDbContext>();
 
+builder.Services.AddHttpContextAccessor();
 
-//birinci yol scrutor ile
+//1.yol scrutor ile
 builder.Services.AddMemoryCache();
 builder.Services.AddScoped<IProductRepository, ProductRepository>()
     .Decorate<IProductRepository, ProductRepositoryCacheDecorator>()
     .Decorate<IProductRepository, ProductRepositoryLogDecorator>();
 
-//ikinci yol
+//2. yol
 //builder.Services.AddScoped<IProductRepository>(sp => {
 
 //    var cache = sp.GetRequiredService<IMemoryCache>();
@@ -41,6 +42,33 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>()
 //    return logDecorator;
 
 //});
+
+//3. yol
+//builder.Services.AddScoped<IProductRepository>(sp =>
+//{
+//    var httpContextAccessor = sp.GetRequiredService<IHttpContextAccessor>();
+//    var cache = sp.GetRequiredService<IMemoryCache>();
+//    var logger = sp.GetRequiredService<ILogger<ProductRepositoryLogDecorator>>();
+//    var dbContext = sp.GetRequiredService<AppIdentiyDbContext>();
+//    var repository = new ProductRepository(dbContext);
+
+//    var cacheDecorator = new ProductRepositoryCacheDecorator(repository, cache);
+
+//    var isAdmin = httpContextAccessor.HttpContext.User.Identity.Name == "admin";
+//    if (isAdmin)
+//    {
+//        var logDecorator = new ProductRepositoryLogDecorator(cacheDecorator, logger);
+//        return logDecorator;
+//    }
+
+//    return cacheDecorator;
+
+//});
+
+
+
+
+
 
 var app = builder.Build();
 
