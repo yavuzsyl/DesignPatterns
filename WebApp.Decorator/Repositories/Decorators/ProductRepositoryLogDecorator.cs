@@ -5,7 +5,9 @@ namespace WebApp.Decorator.Repositories.Decorators
     public class ProductRepositoryLogDecorator : BaseProductRepositoryDecorator
     {
         private readonly ILogger<ProductRepositoryLogDecorator> logger;
-        public ProductRepositoryLogDecorator(IProductRepository productRepository, ILogger<ProductRepositoryLogDecorator> logger) : base(productRepository)
+        public ProductRepositoryLogDecorator(
+            IProductRepository productRepository, 
+            ILogger<ProductRepositoryLogDecorator> logger) : base(productRepository)
         {
             this.logger = logger;
         }

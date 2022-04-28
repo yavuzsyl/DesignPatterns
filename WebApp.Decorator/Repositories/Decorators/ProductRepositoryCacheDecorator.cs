@@ -9,8 +9,7 @@ namespace WebApp.Decorator.Repositories.Decorators
         private const string CACHE_KEY = "products";
         public ProductRepositoryCacheDecorator(
             IProductRepository productRepository,
-            IMemoryCache cache)
-            : base(productRepository)
+            IMemoryCache cache) : base(productRepository)
         {
             _cache = cache;
         }

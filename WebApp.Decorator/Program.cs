@@ -22,19 +22,25 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 }).AddEntityFrameworkStores<AppIdentiyDbContext>();
 
 
+//birinci yol scrutor ile
 builder.Services.AddMemoryCache();
-builder.Services.AddScoped<IProductRepository>(sp => {
+builder.Services.AddScoped<IProductRepository, ProductRepository>()
+    .Decorate<IProductRepository, ProductRepositoryCacheDecorator>()
+    .Decorate<IProductRepository, ProductRepositoryLogDecorator>();
 
-    var cache = sp.GetRequiredService<IMemoryCache>();
-    var logger = sp.GetRequiredService<ILogger<ProductRepositoryLogDecorator>>();
-    var dbContext = sp.GetRequiredService<AppIdentiyDbContext>();
-    var repository = new ProductRepository(dbContext);
+//ikinci yol
+//builder.Services.AddScoped<IProductRepository>(sp => {
 
-    var cacheDecorator = new ProductRepositoryCacheDecorator(repository, cache);
-    var logDecorator = new ProductRepositoryLogDecorator(cacheDecorator, logger);
-    return logDecorator;
+//    var cache = sp.GetRequiredService<IMemoryCache>();
+//    var logger = sp.GetRequiredService<ILogger<ProductRepositoryLogDecorator>>();
+//    var dbContext = sp.GetRequiredService<AppIdentiyDbContext>();
+//    var repository = new ProductRepository(dbContext);
 
-});
+//    var cacheDecorator = new ProductRepositoryCacheDecorator(repository, cache);
+//    var logDecorator = new ProductRepositoryLogDecorator(cacheDecorator, logger);
+//    return logDecorator;
+
+//});
 
 var app = builder.Build();
 
