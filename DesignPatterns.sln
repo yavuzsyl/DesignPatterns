@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecoratorHF", "DecoratorHF\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp.Decorator", "WebApp.Decorator\WebApp.Decorator.csproj", "{5E072388-969E-46FD-9E8E-0C397D70ECE4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Factory Pattern First Look", "..\..\..\..\..\Desktop\PluralSight_Courses\c-sharp-design-patterns-factory-abstract\02\demos\Demo 1 - Factory Pattern First Look\Start_Here\Factory Pattern First Look.csproj", "{C5003BE0-744A-4666-B5E0-3CFA4A65418F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FactoryPatternPS", "FactoryPatternPS\FactoryPatternPS.csproj", "{FEA3765A-E8D5-44CB-9959-5EE0A107ED54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +47,10 @@ Global
 		{5E072388-969E-46FD-9E8E-0C397D70ECE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E072388-969E-46FD-9E8E-0C397D70ECE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E072388-969E-46FD-9E8E-0C397D70ECE4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C5003BE0-744A-4666-B5E0-3CFA4A65418F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C5003BE0-744A-4666-B5E0-3CFA4A65418F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C5003BE0-744A-4666-B5E0-3CFA4A65418F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C5003BE0-744A-4666-B5E0-3CFA4A65418F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEA3765A-E8D5-44CB-9959-5EE0A107ED54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEA3765A-E8D5-44CB-9959-5EE0A107ED54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEA3765A-E8D5-44CB-9959-5EE0A107ED54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEA3765A-E8D5-44CB-9959-5EE0A107ED54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
